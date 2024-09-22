@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>INST377 - Lab 4</title>
+        <link rel = "stylesheet" href = "lab4-CSS.css">
+    </head>
+
+    <body>
+        <!-- Header -->
+        <header>
+            <h1 id="header">INST377 - Lab 4</h1>
+        </header>
+
+        <!-- Main Contents-->
+        <div class="main-conainer">
+            <!-- Name-->
+            <div class="name">
+                <form name="name">
+                    <label for="Name">Name: </label>
+                    <input type="text"name="name"id="name" required> <button onclick="alertme()">Alert Me!</button>
+                </form>
+            </div>
+            <!--Change Color-->
+            <div class="color">
+                <button onclick="changecolor()" id="color">Change Color</button>
+            </div>
+            <!-- Validate-->
+            <div class="validate-class">
+                <form name="ValidateForm">
+                    <label for="validate">Text Tester: </label>
+                    <input type="text"id="validate"> <button onclick="validate_text()">Validate Text</button>
+                </form>
+            </div>
+            <!-- Add Text -->
+            <div class="addText">
+                <button onclick="addtext()">Add Text </button>
+            </div>
+        </div>
+        <!-- Java Script -->
+        <script type="text/javascript">
+            function alertme(){
+                var f = document.getElementById('name').value;
+                alert('Hello ' + f + '!');
+            }
+            function validate_text(){
+                const validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                if(document.ValidateForm.validate.value === ""){
+                    alert('Enter text!!!')
+                    return false;
+                }
+                if (validation.test(document.ValidateForm.validate.value)){
+                    alert('How about...nah :(');
+                    return false;
+                }
+                return true;
+            }
+            function changecolor(){
+                if(document.body.style.background=='lightblue') {
+                    const t = document.body.style.background='hotpink';
+                } else {
+                    const t = document.body.style.background='lightblue';
+                }
+            }
+            function addtext(){
+                var text = document.getElementById("header").innerHTML="INST377 - Lab 4 - Add Text";
+                return true;
+            }
+        </script>
+    </body>
+</html>
